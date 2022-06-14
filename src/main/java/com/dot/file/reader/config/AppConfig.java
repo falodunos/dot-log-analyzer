@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -21,7 +20,7 @@ public class AppConfig {
     private String name;
     private String environment;
     private String uploadDir;
-    List<String> runtimeConfigs = new ArrayList<>();
+    private String duration;
 
     /**
      * @return RestTemplate

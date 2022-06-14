@@ -1,11 +1,10 @@
 package com.dot.file.reader.exception;
 
 import com.dot.file.reader.persistence.model.api.ApiError;
-import org.hibernate.exception.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.GenericJDBCException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
+@Slf4j
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
@@ -51,24 +51,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         String error = "Malformed JSON request";
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, error, ex);
-        return buildResponseEntity(apiError);
-    }
-
-    @ExceptionHandler(MissingEntityException.class)
-    protected ResponseEntity<Object> handleEntityNotFound(MissingEntityException ex) {
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getMessage(), ex);
-        return buildResponseEntity(apiError);
-    }
-
-    @ExceptionHandler(InvalidReferenceIdException.class)
-    protected ResponseEntity<Object> handleMissingReferenceId(InvalidReferenceIdException ex) {
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getMessage(), ex);
-        return buildResponseEntity(apiError);
-    }
-
-    @ExceptionHandler(value = {DuplicateUniqueIdException.class})
-    protected ResponseEntity<Object> handBadRequest(RuntimeException ex, WebRequest request) {
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getMessage(), ex);
         return buildResponseEntity(apiError);
     }
 
@@ -113,21 +95,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     /**
-     * Handle DataIntegrityViolationException, inspects the cause for different DB causes.
-     *
-     * @param ex the DataIntegrityViolationException
-     * @return the ApiError object
-     */
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    protected ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException ex,
-                                                                  WebRequest request) {
-        if (ex.getCause() instanceof ConstraintViolationException) {
-            return buildResponseEntity(new ApiError(HttpStatus.CONFLICT, "Database error", ex.getCause()));
-        }
-        return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex));
-    }
-
-    /**
      * Handle Exception, handle generic Exception.class
      *
      * @param ex the Exception
@@ -139,6 +106,23 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError(BAD_REQUEST);
         apiError.setMessage(String.format("The parameter '%s' of value '%s' could not be converted to type '%s'", ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName()));
         apiError.setDebugMessage(ex.getMessage());
+        return buildResponseEntity(apiError);
+    }
+
+    /**
+     * Handle Exception, handle generic Exception.class
+     *
+     * @param ex the Exception
+     * @return the ApiError object
+     *
+     */
+    @ExceptionHandler(InvalidParameterException.class)
+    protected ResponseEntity<Object> handleParameterException(MethodArgumentTypeMismatchException ex,
+                                                                    WebRequest request) {
+        ApiError apiError = new ApiError(BAD_REQUEST);
+        apiError.setMessage("Invalid parameter exception, please expected data format!");
+        apiError.setDebugMessage(ex.getMessage());
+
         return buildResponseEntity(apiError);
     }
 

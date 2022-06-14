@@ -9,9 +9,9 @@ public class AppConstants {
 
     public static final String APP_CONTEXT = "/dot/logger/v1/";
 
-    public static final String FILE_TYPE = "text/csv";
+    public static final String FILE_TYPE = "text/plain";
     public static final String FILE_UPLOAD_PATH = getFileUploadPath();
-    public static final String TARGET_FILE_NAME = "users_access.txt";
+    public static final String TARGET_FILE_NAME = "user_access.txt";
     public static final String TARGET_FILE_PATH = getFileUploadPath() + TARGET_FILE_NAME;
     public static final String INTEGER_REGEX_PATTERN = "[+-]?[0-9]+";
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
@@ -24,7 +24,10 @@ public class AppConstants {
     private static String getFileUploadPath() {
         String path = System.getProperty("user.dir") + "\\uploads\\";
         path = path.replace("\\", "/");
+
         return path;
+
+//        return "src/main/resources/";
     }
 
     public interface ApiResponseMessage {

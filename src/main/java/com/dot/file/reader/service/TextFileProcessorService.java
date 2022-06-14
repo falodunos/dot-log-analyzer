@@ -1,23 +1,50 @@
 package com.dot.file.reader.service;
 
-import com.dot.file.reader.service.util.AppConstants;
-import com.opencsv.CSVReader;
+import com.dot.file.reader.persistence.repository.UserAccessRepository;
+import org.springframework.batch.core.*;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.repository.JobRestartException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 @Service
 public class TextFileProcessorService {
 
-    /**
-     * Read Text File
-     * @return CSVReader
-     * @throws FileNotFoundException
-     */
-    private CSVReader readFile() throws FileNotFoundException {
-        CSVReader reader = new CSVReader(new FileReader(AppConstants.TARGET_FILE_PATH));
-        return  reader;
+    @Autowired
+    JobLauncher jobLauncher;
+
+    @Autowired
+    Job job;
+
+    @Autowired
+    UserAccessRepository userAccessRepository;
+
+    public void clearTable() {
+        userAccessRepository.deleteAll();
     }
 
+    public boolean hasUploadedRecords() {
+        return this.userAccessRepository.findAll().size() > 0;
+    }
+
+    public void importTextFileToDatabase() {
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addLong("startAt", System.currentTimeMillis())
+                .toJobParameters();
+
+        try {
+            jobLauncher.run(job, jobParameters);
+        } catch (JobExecutionAlreadyRunningException e) {
+            e.printStackTrace();
+        } catch (JobRestartException e) {
+            e.printStackTrace();
+        } catch (JobInstanceAlreadyCompleteException e) {
+            e.printStackTrace();
+        } catch (JobParametersInvalidException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

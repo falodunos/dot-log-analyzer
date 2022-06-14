@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Slf4j
@@ -14,13 +15,14 @@ import javax.persistence.*;
 @Table(name="BLOCKED_IP_TABLE")
 @EntityListeners(AuditingEntityListener.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class IPTable extends DateAudit {
+public class IPTable extends DateAudit implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "ip_address", nullable = false, unique = true, columnDefinition = "varchar(20)")
     private String ipAddress;
 
     public IPTable() {}

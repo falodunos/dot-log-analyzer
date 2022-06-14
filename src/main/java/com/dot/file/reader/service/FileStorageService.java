@@ -50,7 +50,7 @@ public class FileStorageService {
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
-            this.renameFile(fileName); // always rename uploaded file to matrix.csv to ensure easy accessibility
+            this.renameFile(fileName); // always rename uploaded file to user_access.txt to ensure easy accessibility
 
             return AppConstants.TARGET_FILE_NAME;
         } catch (IOException ex) {
@@ -59,7 +59,7 @@ public class FileStorageService {
     }
 
     /**
-     * Rename uploaded file name to matrix.csv
+     * Rename uploaded file name to user_access.txt
      * @param fileName
      * @throws IOException
      * @return void
@@ -73,11 +73,10 @@ public class FileStorageService {
     }
 
     /**
-     * Check if file to be uploaded is a .csv file
      * @param file
      * @return boolean
      */
-    public boolean hasCSVFormat(MultipartFile file) {
+    public boolean hasPlainTextFormat(MultipartFile file) {
         if (!AppConstants.FILE_TYPE.equals(file.getContentType())) {
             return false;
         }
@@ -93,7 +92,7 @@ public class FileStorageService {
         UploadFileResponse uploadFileResponse = null;
         BaseResponse response;
 
-        if (hasCSVFormat(file)) {
+        if (hasPlainTextFormat(file)) {
             try {
                 String fileName = storeFile(file); // upload file and return uploaded file name
 
@@ -111,9 +110,9 @@ public class FileStorageService {
 
         response = uploadFileResponse != null ?
                 new BaseResponse(HttpStatus.OK.value() + "", AppConstants.ApiResponseMessage.SUCCESSFUL, uploadFileResponse) :
-                new BaseResponse(HttpStatus.EXPECTATION_FAILED.value() + "", "Failed, please upload a valid CSV file");
+                new BaseResponse(HttpStatus.EXPECTATION_FAILED.value() + "", AppConstants.ApiResponseMessage.FAILED);
 
-        log.info("CSV File Upload Response : " + response.toString());
+        log.info("Text File Upload Response : " + response.toString());
         return response;
     }
 }

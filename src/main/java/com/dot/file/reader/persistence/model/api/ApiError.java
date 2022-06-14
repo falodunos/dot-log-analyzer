@@ -228,4 +228,16 @@ public class ApiError {
     public void setResponseCode(int responseCode) {
         this.responseCode = responseCode;
     }
+
+    @Override
+    public String toString() {
+        return "ApiError{" +
+                "status=" + status +
+                ", responseCode=" + responseCode +
+                ", timestamp=" + timestamp +
+                ", message='" + message + '\'' +
+                ", debugMessage='" + debugMessage + '\'' +
+                ", subErrors=" + subErrors +
+                '}';
+    }
 }

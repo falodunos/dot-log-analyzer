@@ -23,6 +23,9 @@ spring:
     multipart.file-size-threshold: 2KB
     multipart.max-file-size: 200MB
     multipart.max-request-size: 215MB
+  batch:
+    initialize-schema: ALWAYS
+    job.enabled: false
 
   http.multipart.max-file-size: 50MB
 
@@ -36,15 +39,9 @@ logging:
     com.netflix.discovery.DiscoveryClient: INFO
     com.drone.manager: INFO
     org.springframework.security: INFO
-server.port: 8084
 
-runtimeConfigs:
-  start: 00
-  duration: hourly
-  periods:
-    - hourly
-    - daily
-  limit: 00
+server.port: 8084
+duration: hourly
 
 ---
 
