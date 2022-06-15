@@ -78,4 +78,6 @@ logging:
     com.netflix.discovery.DiscoveryClient: INFO
     com.drone.manager: INFO
     org.springframework.security: INFO
+
 server.port: 8084
+duration: hourly

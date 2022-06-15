@@ -25,8 +25,8 @@ public class ApiController {
     @Autowired
     FileStorageService fileStorageService;
 
-    @Autowired
-    TextFileProcessorService textFileProcessorService;
+//    @Autowired
+//    TextFileProcessorService textFileProcessorService;
 
     /**
      * @param file

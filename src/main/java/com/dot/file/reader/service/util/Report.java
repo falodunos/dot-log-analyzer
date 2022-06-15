@@ -111,7 +111,7 @@ public class Report {
         long timeDifference = getTimeDifferenceInSeconds(userAccess, getStartDateTime());
 
         long durationSpan = duration.equalsIgnoreCase(Duration.DAILY.getCode()) ?
-                 24 * 60 * 60 : 60 * 60; // either 60 * 60 = 3600 or 60 * 60 * 24 = 86400 seconds
+                 24 * 60 * 60 : 60 * 60; // either 60 * 60 = 3600 (an hour) or 60 * 60 * 24 = 86400 (a day) seconds
 
         System.out.println("Supplied Duration " + duration + " Duration Span " + durationSpan);
 
