@@ -3,6 +3,7 @@
 ## DATABASE CONFIGURATION
 - Database Name: `req_limit`
 - Username: `root`, Password: `password`
+- MySQL Version: `mysql  Ver 8.0.27 for macos11.6 on x86_64 (Homebrew)`
 
 ## POSTMAN DOCUMENTATION
 - This documentation details how to upload new text file via an endpoint
