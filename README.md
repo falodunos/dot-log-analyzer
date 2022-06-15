@@ -1,5 +1,9 @@
 # dot-log-analyzer
 
+## DATABASE CONFIGURATION
+- Database Name: `req_limit`
+- Username: `root`, Password: `password`
+
 ## POSTMAN DOCUMENTATION
 - This documentation details how to upload new text file via an endpoint
 - Doc path is `https://github.com/falodunos/dot-log-analyzer/tree/master/postman-document`
@@ -16,6 +20,6 @@
 - ``java -jar dot-log-analyzer-0.0.1-SNAPSHOT.jar 2022-01-01.00:00:11 hourly 200``
 - In case you need to test application against a different file, please upload via the controller endpoint as shown 
 in the postman API documentation
-- 
+
 
 
