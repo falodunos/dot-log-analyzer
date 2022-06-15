@@ -1,0 +1,36 @@
+2022-06-15 03:33:48.172  INFO 15861 --- [restartedMain] c.d.f.reader.DotLogAnalyzerApplication   : Starting DotLogAnalyzerApplication on Olugbengas-MacBook-Pro.local with PID 15861 (/Users/olugbengafalodun/Documents/development/interview/dot-log-analyzer/target/classes started by olugbengafalodun in /Users/olugbengafalodun/Documents/development/interview/dot-log-analyzer)
+2022-06-15 03:33:48.175  INFO 15861 --- [restartedMain] c.d.f.reader.DotLogAnalyzerApplication   : The following profiles are active: development
+2022-06-15 03:33:48.219  INFO 15861 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-15 03:33:48.219  INFO 15861 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-15 03:33:49.226  INFO 15861 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-06-15 03:33:49.313  INFO 15861 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78ms. Found 2 repository interfaces.
+2022-06-15 03:33:49.996  INFO 15861 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$257d433f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-15 03:33:50.505  INFO 15861 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2022-06-15 03:33:50.546  INFO 15861 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-15 03:33:50.546  INFO 15861 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2022-06-15 03:33:50.563  INFO 15861 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/olugbengafalodun/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2022-06-15 03:33:50.677  INFO 15861 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-06-15 03:33:50.677  INFO 15861 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2458 ms
+2022-06-15 03:33:51.371  INFO 15861 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-15 03:33:51.713  INFO 15861 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-15 03:33:51.783  INFO 15861 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2022-06-15 03:33:51.863  INFO 15861 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2022-06-15 03:33:51.865  INFO 15861 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2022-06-15 03:33:52.149  INFO 15861 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2022-06-15 03:33:52.391  INFO 15861 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-06-15 03:33:53.496  INFO 15861 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-15 03:33:53.521  INFO 15861 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-15 03:33:54.379  WARN 15861 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-15 03:33:54.712  WARN 15861 --- [restartedMain] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2022-06-15 03:33:54.716  INFO 15861 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2022-06-15 03:33:54.735  INFO 15861 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-06-15 03:33:54.959  INFO 15861 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-06-15 03:33:55.042  INFO 15861 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2022-06-15 03:33:55.046  INFO 15861 --- [restartedMain] c.d.f.reader.DotLogAnalyzerApplication   : Started DotLogAnalyzerApplication in 7.527 seconds (JVM running for 8.118)
+2022-06-15 03:35:26.610  INFO 15861 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-15 03:35:26.612  INFO 15861 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-15 03:35:26.630  INFO 15861 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2022-06-15 03:35:26.925  INFO 15861 --- [http-nio-8084-exec-2] c.d.f.r.web.controller.ApiController     : file :: org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@7f95fcd1
+2022-06-15 03:35:26.999  INFO 15861 --- [http-nio-8084-exec-2] c.d.f.reader.service.FileStorageService  : Text File Upload Response : BaseResponse{status=200, message='Successful', data=UploadFileResponse(fileName=user_access.txt, fileDownloadUri=http://localhost:8084/downloadFile/user_access.txt, fileType=text/plain, size=19942816)}
