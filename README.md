@@ -1,11 +1,13 @@
 # dot-log-analyzer
 
 ## POSTMAN DOCUMENTATION
-This documentation details how to upload new text file via an endpoint
+- This documentation details how to upload new text file via an endpoint
+- Doc path is `https://github.com/falodunos/dot-log-analyzer/tree/master/postman-document`
 
 ## Application JAR File Path
 - The compiled JAR file is available at project root folder as shown below
-- ``dot-log-analyser/dot-log-analyzer-0.0.1-SNAPSHOT.jar``
+- ``dot-log-analyser/dot-log-analyzer-0.0.1-SNAPSHOT.jar`` 
+- OR ``https://github.com/falodunos/dot-log-analyzer/blob/master/dot-log-analyzer-0.0.1-SNAPSHOT.jar``
 
 ## How To Run Application
 - Create `uploads` folder in project root directory
