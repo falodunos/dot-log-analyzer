@@ -1,5 +1,8 @@
 # dot-log-analyzer
 
+## Link To Accessment File: 
+```https://dot-take-home-assessment.s3.eu-central-1.amazonaws.com/Snr+Java+Developer+Assignment.pdf```
+
 ## DATABASE CONFIGURATION
 - Database Name: `req_limit`
 - Username: `root`, Password: `password`
