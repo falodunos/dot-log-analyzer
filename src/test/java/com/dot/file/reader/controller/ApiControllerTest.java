@@ -1,6 +1,8 @@
 package com.dot.file.reader.controller;
 
+import com.dot.file.reader.config.AppConfig;
 import com.dot.file.reader.service.FileStorageService;
+import com.dot.file.reader.service.TextFileProcessorService;
 import com.dot.file.reader.service.util.AppConstants;
 import com.dot.file.reader.web.controller.ApiController;
 import com.dot.file.reader.web.dto.response.BaseResponse;
@@ -31,6 +33,12 @@ public class ApiControllerTest {
 
     @MockBean
     FileStorageService fileStorageService;
+
+    @MockBean
+    AppConfig appConfig;
+
+    @MockBean
+    TextFileProcessorService textFileProcessorService;
 
     MockMultipartFile file = new MockMultipartFile(
             "file", "user_access.txt",
